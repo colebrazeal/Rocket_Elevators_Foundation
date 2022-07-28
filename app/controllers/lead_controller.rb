@@ -63,7 +63,7 @@ class LeadController < ApplicationController
                 type: "Question",
                 email: @lead.email,
                 phone: @lead.phone,
-                cc_emails: ["support@codeboxx777.freshdesk.com"],    
+                cc_emails: ["support@codeboxx4015.freshdesk.com"],    
                 subject: "#{@lead.name} from #{@lead.company_name} sent contact request #{Time.now}",
                 description: "#{@lead.name} from #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone}. <br/>
                             #{@lead.department} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators. <br/>
@@ -74,7 +74,7 @@ class LeadController < ApplicationController
                 }
                 
                 freshdesk_api_path = 'api/v2/tickets'
-                freshdesk_api_url  = "https://codeboxx777.freshdesk.com/#{freshdesk_api_path}"
+                freshdesk_api_url  = "https://codeboxx4015.freshdesk.com/#{freshdesk_api_path}"
 
                 site = RestClient::Resource.new(freshdesk_api_url, user_name_or_api_key, password_or_x)
  

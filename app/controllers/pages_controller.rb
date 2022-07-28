@@ -20,6 +20,9 @@ class PagesController < ApplicationController
     def reado
          
     end
+
+    def interventions
+    end
    
     def login
         if user.admin?

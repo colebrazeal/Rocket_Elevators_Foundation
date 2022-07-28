@@ -110,6 +110,12 @@
                                 <!-- CONTACT -->
                                 <%= link_to "CONTACT", "#{root_path}#contact", 'data-turbolinks': false %>
                             </li>
+                            <li>
+                                <!-- INTERVENTION -->
+                                <% if user_signed_in? && current_user.is_admin == true %>
+                                <%= link_to "INTERVENTION", interventions_path %>
+                                <% end %>
+                            </li>
                                 <li>
                                     <!-- LOGIN -->
                                     <%# <a href="/users/sign_in"></a> %>

@@ -56,7 +56,7 @@ class QuotesController < ApplicationController
                     }
 
                     freshdesk_api_path = 'api/v2/tickets'
-                    freshdesk_api_url  = "https://codeboxx777.freshdesk.com/#{freshdesk_api_path}"
+                    freshdesk_api_url  = "https://codeboxx4015.freshdesk.com/#{freshdesk_api_path}"
 
                     site = RestClient::Resource.new(freshdesk_api_url, user_name_or_api_key, password_or_x)
  

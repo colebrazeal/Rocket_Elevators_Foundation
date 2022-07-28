@@ -1,0 +1,131 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_with scope: :quote, url: interventions_path, local: true, :html => {:format => "js"} do |form| %>
+
+<section>
+    <div class="container">
+        <div class="blog-post-item">
+            <h1>Intervention Request Form:</h1>
+            <form id="myForm" enctype="multipart/form-data">
+
+                
+                <fieldset>
+                    <!-- <input type="hidden" name="action" value="contact_send" /> -->
+                    <div id="clients" class="row">
+                        
+                        <div class="col-md-12">
+                            <label for="client">CLIENTS</label>
+                            <div id="Clients"></div>
+                            <select class="form-control pointer" name="client" id="client" style="font-size:100%">
+                            </select>
+                        </div>
+                    </div>
+
+                    <%# BUILDINGS DROPDOWN %>
+                    <div id="buildings" class="row" style="display:none">
+                    
+                        <div  class="col-md-12">
+                            <label for="building">BUILDINGS</label>
+                            <select class="form-control pointer" name="building" id="building" style="font-size:100%" >
+                                            <option value="">---Select---</option>
+                                            <option  id="customers" value="1">Murphy Rodriguez</option>
+                                            <option  id="customers" value="2">Torphy and Dietrich Heller</option>
+                                            <option  id="customers" value="3">Zboncak and Kassuike, Legros</option>
+                                            <option  id="customers" value="4">Gutmann LLC</option>
+                                            <option  id="customers" value="5">Murazik LLC</option>
+                                            </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <%# BATTERIES DROPDOWN %>
+                    <div id="batteries" class="row" style="display:none">
+                    
+                        <div  class="col-md-12">
+                            <label for="battery">BATTERIES</label>
+                            <select class="form-control pointer" name="battery" id="battery" style="font-size:100%">
+                                            <option value="">---Select---</option>
+                                            <option  id="customers" value="1">Murphy Rodriguez</option>
+                                            <option  id="customers" value="2">Torphy and Dietrich Heller</option>
+                                            <option  id="customers" value="3">Zboncak and Kassuike, Legros</option>
+                                            <option  id="customers" value="4">Gutmann LLC</option>
+                                            <option  id="customers" value="5">Murazik LLC</option>
+                                            </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <%# COLUMNS DROPDOWN %>
+                    <div id="columns" class="row" style="display:none">
+                    
+                        <div  class="col-md-12">
+                            <label for="column">COLUMNS</label>
+                            <select class="form-control pointer" name="column" id="column" style="font-size:100%">
+                                            <option value="">---Select---</option>
+                                            <option  id="customers" value="1">Murphy Rodriguez</option>
+                                            <option  id="customers" value="2">Torphy and Dietrich Heller</option>
+                                            <option  id="customers" value="3">Zboncak and Kassuike, Legros</option>
+                                            <option  id="customers" value="4">Gutmann LLC</option>
+                                            <option  id="customers" value="5">Murazik LLC</option>
+                                            </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <%# ELEVATORS DROPDOWN %>
+                    <div id="elevators" class="row" style="display:none">
+                    
+                        <div  class="col-md-12">
+                            <label for="elevator">ELEVATORS</label>
+                            <select class="form-control pointer" name="elevator" id="elevator" style="font-size:100%">
+                                            <option value="">---Select---</option>
+                                            <option  id="customers" value="1">Murphy Rodriguez</option>
+                                            <option  id="customers" value="2">Torphy and Dietrich Heller</option>
+                                            <option  id="customers" value="3">Zboncak and Kassuike, Legros</option>
+                                            <option  id="customers" value="4">Gutmann LLC</option>
+                                            <option  id="customers" value="5">Murazik LLC</option>
+                                            </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <%# EMPLOYEES DROPDOWN %>
+                    <div id="employees" class="row" style="display:none">
+                    
+                        <div class="col-md-12">
+                            <label for="employee">EMPLOYEES</label>
+                            <select class="form-control pointer" name="employee" id="employee" style="font-size:100%">
+                                            <option value="">---Select---</option>
+                                            <option  id="employee" value="1">Murphy Rodriguez</option>
+                                            <option  id="employee" value="2">Torphy and Dietrich Heller</option>
+                                            <option  id="employee" value="3">Zboncak and Kassuike, Legros</option>
+                                            <option  id="employee" value="4">Gutmann LLC</option>
+                                            <option  id="employee" value="5">Murazik LLC</option>
+                                            </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-md-12">
+                                <label for="description">Description *</label>
+                                <textarea required maxlength="10000" rows="8" style="font-size:100%" class="form-control" name="description" id="description"></textarea>
+                            </div>
+                        </div>
+
+
+        </div>
+
+        <br><div class="row" style="justify-content: center">
+            <div class="col-md-3"> 
+                 <%= form.submit %>
+            </div>
+        </div>
+    </div>
+</section>
+
+ 
+<% end %>
+
+
+<%# <%= link_to 'New Intervention', new_intervention_path %> 
