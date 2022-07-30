@@ -6,5 +6,19 @@ class CustomersController < ApplicationController
             @customers = Customer.all
             respond_with(@customers)
         end
+
+        # def set_customer
+        #     @customers = Customer.find(params[:id])
+        # end
+      
+        #   def customer_params
+        #     params.fetch(:customer, {})
+        #   end
+
+        #   def create
+        #     company_name = params[:company_name]
+        #     @customers = Customer.new(customer_params)
+        #      @customers.company_name = company_name
+        #   end
    
 end

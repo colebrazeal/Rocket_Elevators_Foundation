@@ -2,6 +2,7 @@ require 'rest_client'
 require 'json'
 
 
+
 class InterventionsController < ApplicationController
   respond_to :js, only: [:create]
   respond_to :html
@@ -30,9 +31,25 @@ class InterventionsController < ApplicationController
     @employee = Employee.new
   end
 
-  def index
-    @customers = Customer.all
+  def new
+    @customers = Customer.new
   end
+
+  def search
+    @customers = Customer.all(params)
+  end
+
+  # def create
+  #   company_name = params[:company_name]
+  #   @customers = Customer.new(customer_params)
+  #    @customers.company_name = company_name
+  # end
+
+  # def new 
+  #   company_name = params[:company_name]
+  #   @customers = Customer.new(customer_params)
+  #     @customers.company_name = company_name
+  # end
 
   # GET /interventions/1/edit
   def edit
@@ -45,7 +62,7 @@ class InterventionsController < ApplicationController
         user_name_or_api_key =  ENV["FRESH_KEY"]
         password_or_x = "X"
 
-        customer_id = params[:customer_id]
+        customer_id = params["client"]
         building_id = params["building"]
         battery_id = params["battery"]
         column_id = params["column"]
@@ -71,24 +88,30 @@ class InterventionsController < ApplicationController
           @intervention.updated_at = updated_at
           @intervention.employee_id = employee_id
 
+
     # respond_to do |format|
     if user_signed_in?
       @intervention.employee_id = current_user.id
       @intervention.author = current_user.id
       @intervention.save!
+
       
       
 
       if @intervention.save
           redirect_back fallback_location: new_intervention_path, notice: "Intervention form has been sent successfully !"
-          # customer_email = Intervention.find(@interventions.customer_id)
+
+          # company_name = params[:company_name]
+          # @customers = Customer.new(customer_params)
+          #   @customers.company_name = company_name
+
         intervention_payload =  {
           status: 2,
           priority: 1,
           type: "Incident",
-          # email: customers_email[:email],
-          email: "bootyboy@gmail.com",   
-          subject: "#{@intervention.author} from #{@intervention.customer_id} sent an intervention request #{Time.now}",
+          email: current_user.email,
+          # email: "bootyboy@gmail.com",   
+          subject: "#{@intervention.customer_id} from Building #{@intervention.building_id} sent an intervention request #{Time.now}",
           description: "#{@intervention.author} from #{@intervention.customer_id} has requested for elevator #{@intervention.elevator_id}, in column #{@intervention.column_id}, with battery #{@intervention.battery_id} to be resolved in building #{@intervention.building_id}.<br/>
                         #{@intervention.employee_id} has been assigned to resolve this incident.<br/>
                         Request description: #{@intervention.report}"
@@ -147,6 +170,8 @@ class InterventionsController < ApplicationController
     def intervention_params
       params.fetch(:intervention, {})
     end
+
+    
 
 
 end

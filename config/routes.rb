@@ -45,11 +45,42 @@ Rails.application.routes.draw do
 
   resources :quotes
 
-  resources :customers do
-    collection do
-        get :search
+    resources :customers do
+      collection do
+          get :search
+      end
     end
-end
+
+    resources :buildings do
+      collection do
+          get :search
+      end
+    end
+
+    resources :batteries do
+      collection do
+          get :search
+      end
+    end
+
+    resources :columns do
+      collection do
+          get :search
+      end
+    end
+
+
+    resources :elevators do
+      collection do
+          get :search
+      end
+    end
+
+    resources :employee do
+      collection do
+          get :search
+      end
+    end
   
 end
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
