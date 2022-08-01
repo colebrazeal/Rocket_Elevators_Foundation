@@ -23,21 +23,28 @@ class InterventionsController < ApplicationController
     @intervention = Intervention.new
   end
 
-  def index
-    @employee = Employee.all
-  end
+  # def index
+  #   @employee = Employee.all
+  # end
 
-  def new
-    @employee = Employee.new
-  end
+  # def new
+  #   @employee = Employee.new
+  # end
 
-  def new
-    @customers = Customer.new
-  end
+  # def new
+  #   @customers = Customer.new
+  # end
 
   def search
     @customers = Customer.all(params)
   end
+
+  def create
+    company_name = params[:company_name]
+    @customers = Customer.new(customer_params)
+     @customers.company_name = company_name
+  end
+ 
 
   # def create
   #   company_name = params[:company_name]
@@ -144,7 +151,7 @@ class InterventionsController < ApplicationController
         format.html { redirect_to intervention_url(@intervention), notice: "Intervention was successfully updated." }
         format.json { render :show, status: :ok, location: @intervention }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+      format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @intervention.errors, status: :unprocessable_entity }
       end
     end
@@ -160,6 +167,14 @@ class InterventionsController < ApplicationController
     end
   end
 
+  def set_customer
+    @customers = Customer.find(params[:id])
+  end
+
+  def customer_params
+    params.fetch(:customer, {})
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_intervention
@@ -171,7 +186,8 @@ class InterventionsController < ApplicationController
       params.fetch(:intervention, {})
     end
 
-    
+ 
+  
 
 
 end
