@@ -118,7 +118,7 @@ class InterventionsController < ApplicationController
           email: @customer.email,
           # email: "bootyboy@gmail.com",   
           subject: "#{@customer.contact_name} from Building #{@customer.company_name} sent an intervention request #{Time.now}",
-          description: "#{@customer.contact_name} from #{@customer.contact_name} has requested for elevator #{@intervention.elevator_id}, in column #{@intervention.column_id}, with battery #{@intervention.battery_id} to be resolved in building #{@intervention.building_id}.<br/>
+          description: "#{@customer.contact_name} from #{@customer.company_name} has requested for elevator #{@intervention.elevator_id}, in column #{@intervention.column_id}, with battery #{@intervention.battery_id} to be resolved in building #{@intervention.building_id}.<br/>
                         #{@intervention.employee_id} has been assigned to resolve this incident.<br/>
                         Request description: #{@intervention.report}"
           
