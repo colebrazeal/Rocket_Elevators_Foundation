@@ -35,15 +35,15 @@ class InterventionsController < ApplicationController
   #   @customers = Customer.new
   # end
 
-  def search
-    @customers = Customer.all(params)
-  end
+  # def show
+  #   @customers = Customer.find(params[:id])
+  # end
 
-  def create
-    company_name = params[:company_name]
-    @customers = Customer.new(customer_params)
-     @customers.company_name = company_name
-  end
+  # def create
+  #   company_name = params[:company_name]
+  #   @customers = Customer.new(customer_params)
+  #    @customers.company_name = company_name
+  # end
  
 
   # def create
@@ -108,18 +108,17 @@ class InterventionsController < ApplicationController
       if @intervention.save
           redirect_back fallback_location: new_intervention_path, notice: "Intervention form has been sent successfully !"
 
-          # company_name = params[:company_name]
-          # @customers = Customer.new(customer_params)
-          #   @customers.company_name = company_name
+          @customer = Customer.find(customer_id)
+          puts @customer
 
         intervention_payload =  {
           status: 2,
           priority: 1,
           type: "Incident",
-          email: current_user.email,
+          email: @customer.email,
           # email: "bootyboy@gmail.com",   
-          subject: "#{@intervention.customer_id} from Building #{@intervention.building_id} sent an intervention request #{Time.now}",
-          description: "#{@intervention.author} from #{@intervention.customer_id} has requested for elevator #{@intervention.elevator_id}, in column #{@intervention.column_id}, with battery #{@intervention.battery_id} to be resolved in building #{@intervention.building_id}.<br/>
+          subject: "#{@customer.contact_name} from Building #{@customer.company_name} sent an intervention request #{Time.now}",
+          description: "#{@customer.contact_name} from #{@customer.contact_name} has requested for elevator #{@intervention.elevator_id}, in column #{@intervention.column_id}, with battery #{@intervention.battery_id} to be resolved in building #{@intervention.building_id}.<br/>
                         #{@intervention.employee_id} has been assigned to resolve this incident.<br/>
                         Request description: #{@intervention.report}"
           
@@ -165,14 +164,6 @@ class InterventionsController < ApplicationController
       format.html { redirect_to interventions_url, notice: "Intervention was successfully destroyed." }
       format.json { head :no_content }
     end
-  end
-
-  def set_customer
-    @customers = Customer.find(params[:id])
-  end
-
-  def customer_params
-    params.fetch(:customer, {})
   end
 
   private
