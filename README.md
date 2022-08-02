@@ -60,3 +60,7 @@ gems used: 'rest-client', 'json'
 
 * AMAZON POLLY
  When the admin successfully logged in, and go to Admin page. the Amazon Polly function will be triggered and API being called, which  receiving a text and sends the audio file back with all information that admin can play via simple web browser audio player.
+ 
+ * REST API LINKS
+  https://rocketelevatorsfoundationapi.herokuapp.com/
+  https://github.com/colebrazeal/Rocket_Elevators_Foundation_API.git
