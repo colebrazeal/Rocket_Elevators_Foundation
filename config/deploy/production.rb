@@ -18,6 +18,7 @@ set :deploy_to, "/root/apps/#{app}"
 set :linked_dirs, %w{tmp/pids tmp/sockets log}
 set :linked_files, %w{config/database.yml config/application.yml config/database_pg.yml}
 
+set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/newUbuntu.pub) }
 # role-based syntax
 # ==================
 
