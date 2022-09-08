@@ -14,7 +14,7 @@ set :branch, proc { `git rev-parse --abbrev-ref main`.chomp }
 set :application, app
 set :rails_env, "development"
 set :bundle_without, "production"
-set :deploy_to, "/home/root/apps/#{app}"
+set :deploy_to, "/root/apps/#{app}"
 set :linked_dirs, %w{tmp/pids tmp/sockets log}
 set :linked_files, %w{config/database.yml config/application.yml config/database_pg.yml}
 
