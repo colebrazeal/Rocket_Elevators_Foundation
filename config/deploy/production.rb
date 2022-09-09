@@ -14,11 +14,11 @@ set :branch, proc { `git rev-parse --abbrev-ref main`.chomp }
 set :application, app
 set :rails_env, "development"
 set :bundle_without, "production"
-set :deploy_to, "/cole/apps/#{app}"
+set :deploy_to, "/home/cole/apps/#{app}"
 set :linked_dirs, %w{tmp/pids tmp/sockets log}
 set :linked_files, %w{config/database.yml config/application.yml config/database_pg.yml}
 
-set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/newKey) }
+set :ssh_options,     { forward_agent: true }
 # role-based syntax
 # ==================
 
@@ -27,9 +27,9 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/newK
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-# role :app, %w{root@142.93.198.175}
-# role :web, %w{root@142.93.198.175}
-# role :db,  %w{root@142.93.198.175}
+role :app, %w{cole@104.248.237.69}
+role :web, %w{cole@104.248.237.69}
+role :db,  %w{cole@104.248.237.69}
 
 
 
