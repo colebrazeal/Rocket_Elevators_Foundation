@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server "142.93.198.175", user: "root", roles: %w{app db web}
+server "104.248.237.69", user: "cole", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 app = ENV['APP']
@@ -14,7 +14,7 @@ set :branch, proc { `git rev-parse --abbrev-ref main`.chomp }
 set :application, app
 set :rails_env, "development"
 set :bundle_without, "production"
-set :deploy_to, "/root/apps/#{app}"
+set :deploy_to, "/cole/apps/#{app}"
 set :linked_dirs, %w{tmp/pids tmp/sockets log}
 set :linked_files, %w{config/database.yml config/application.yml config/database_pg.yml}
 
@@ -27,9 +27,9 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/newU
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{root@142.93.198.175}
-role :web, %w{root@142.93.198.175}
-role :db,  %w{root@142.93.198.175}
+# role :app, %w{root@142.93.198.175}
+# role :web, %w{root@142.93.198.175}
+# role :db,  %w{root@142.93.198.175}
 
 
 
