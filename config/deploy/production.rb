@@ -27,9 +27,9 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/newU
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-# role :app, %w{root@142.93.198.175}
-# role :web, %w{root@142.93.198.175}
-# role :db,  %w{root@142.93.198.175}
+role :app, %w{root@142.93.198.175}
+role :web, %w{root@142.93.198.175}
+role :db,  %w{root@142.93.198.175}
 
 
 
